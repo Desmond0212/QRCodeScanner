@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,66 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QRCodeReader_Desmond" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-nD-uNC" userLabel="Top Bar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power By Desmond" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2b-ED-EUA">
+                                        <rect key="frame" x="132" y="54" width="150" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNF-yG-WAC">
+                                        <rect key="frame" x="84" y="10" width="246.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="2vV-6c-M5e"/>
+                                    <constraint firstAttribute="bottom" secondItem="b2b-ED-EUA" secondAttribute="bottom" constant="5" id="PDI-pN-yeO"/>
+                                    <constraint firstItem="fNF-yG-WAC" firstAttribute="top" secondItem="DgD-nD-uNC" secondAttribute="top" constant="10" id="agF-Tp-75K"/>
+                                    <constraint firstItem="fNF-yG-WAC" firstAttribute="centerX" secondItem="DgD-nD-uNC" secondAttribute="centerX" id="ruh-pX-UFe"/>
+                                    <constraint firstItem="b2b-ED-EUA" firstAttribute="centerX" secondItem="DgD-nD-uNC" secondAttribute="centerX" id="z0g-C7-XSj"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PP0-uZ-2ZA">
+                                <rect key="frame" x="0.0" y="832" width="414" height="30"/>
+                                <state key="normal" title="No QR Code is detected">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnQRCodeOnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RAe-hh-aOG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PP0-uZ-2ZA" secondAttribute="trailing" id="29q-8i-1A3"/>
+                            <constraint firstItem="PP0-uZ-2ZA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2Lr-RH-w3h"/>
+                            <constraint firstItem="DgD-nD-uNC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Xh-Ep-FMa"/>
+                            <constraint firstItem="PP0-uZ-2ZA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EkR-Z9-nVZ"/>
+                            <constraint firstItem="DgD-nD-uNC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nXJ-8K-Fgx"/>
+                            <constraint firstItem="DgD-nD-uNC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rl3-u0-CA8"/>
+                            <constraint firstItem="DgD-nD-uNC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xg6-Jw-DiN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="btnMessage" destination="PP0-uZ-2ZA" id="Ivv-jg-SSX"/>
+                        <outlet property="topBar" destination="DgD-nD-uNC" id="XnM-ft-eSD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="132.58928571428572"/>
         </scene>
     </scenes>
 </document>
